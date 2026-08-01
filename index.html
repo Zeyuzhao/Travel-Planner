@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f0e6" />
+    <title>Spring in Japan — April 15–23</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Spring in Japan home"><span class="brand-mark">日</span><span>SPRING<br>IN JAPAN</span></a>
+        <div class="trip-meta"><span>SEA → NRT</span><i></i><span>APR 15–23</span><i></i><span>2 TRAVELLERS</span></div>
+        <button class="menu-button" aria-label="Open itinerary"><span></span><span></span></button>
+      </header>
+
+      <section class="map-stage" id="top" aria-label="Route map">
+        <div id="map" aria-label="Interactive OpenStreetMap route from Tokyo to Osaka"></div>
+        <div class="map-label map-label-tokyo">Tokyo <span>01</span></div>
+        <div class="map-label map-label-kyoto">Kyoto <span>02</span></div>
+        <div class="map-label map-label-nara">Nara <span>03</span></div>
+        <div class="map-label map-label-osaka">Osaka <span>04</span></div>
+        <div class="map-key"><span class="line-swatch"></span> Rail route <span class="pin-swatch">●</span> Overnight</div>
+        <div class="map-corner"><strong>04</strong><span>cities<br>in bloom</span></div>
+      </section>
+
+      <aside class="sidebar" aria-label="Trip details">
+        <section class="intro">
+          <p class="eyebrow">A slow spring escape</p>
+          <h1>Japan, <em>together.</em></h1>
+          <p class="lede">Nine gentle days for two — city nights, old stone paths, and a question worth asking.</p>
+        </section>
+
+        <section class="itinerary">
+          <div class="section-heading"><p class="eyebrow">The plan</p><span>7 DAYS</span></div>
+          <ol>
+            <li class="active"><b>15–16</b><div><strong>Tokyo</strong><span>Asakusa · Sensō-ji · Sumida River</span></div><button aria-label="Show Tokyo on map" data-stop="tokyo">↗</button></li>
+            <li><b>17</b><div><strong>Tokyo</strong><span>Meiji Jingu · Yoyogi · Shibuya</span></div><button aria-label="Show Tokyo on map" data-stop="tokyo">↗</button></li>
+            <li><b>18</b><div><strong>Kyoto</strong><span>Arashiyama · bamboo grove · riverside</span></div><button aria-label="Show Kyoto on map" data-stop="kyoto">↗</button></li>
+            <li><b>19</b><div><strong>Kyoto</strong><span>Gion · Kiyomizu-dera · Maruyama Park</span></div><button aria-label="Show Kyoto on map" data-stop="kyoto">↗</button></li>
+            <li><b>20</b><div><strong>Nara</strong><span>Nara Park · Tōdai-ji · Naramachi</span></div><button aria-label="Show Nara on map" data-stop="nara">↗</button></li>
+            <li><b>21–22</b><div><strong>Osaka</strong><span>Dōtonbori · Tonbori Riverwalk · Namba</span></div><button aria-label="Show Osaka on map" data-stop="osaka">↗</button></li>
+            <li><b>23</b><div><strong>Fly home</strong><span>KIX → SEA · 10:45</span></div><button aria-label="Show Osaka on map" data-stop="osaka">↗</button></li>
+          </ol>
+        </section>
+
+        <section class="budget-card">
+          <p class="eyebrow">For both of you</p><div class="budget-row"><strong>$2,500–$5,000</strong><span>USD</span></div>
+          <div class="budget-bar"><i></i></div><p>Flights $1.4–2.2k · stays $750–1.8k · the rest is for unforgettable snacks.</p>
+        </section>
+
+        <section class="proposal-card">
+          <div class="proposal-icon">♡</div><div><p class="eyebrow">The moment</p><h2>Maruyama Park<br><em>at blue hour</em></h2><p>April 19 · Kyoto<br>After Kiyomizu-dera, beneath the illuminated weeping cherry.</p></div>
+        </section>
+
+        <section class="small-grid">
+          <div><p class="eyebrow">Say this</p><p class="phrase"><b>ふたりです</b><br><span>Futari desu</span><br>“A table for two.”</p></div>
+          <div><p class="eyebrow">Remember</p><p class="tip">Keep a small cash wallet. Tap-to-pay is growing, but little noodle shops still love yen.</p></div>
+        </section>
+      </aside>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
