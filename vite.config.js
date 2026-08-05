@@ -2,6 +2,6 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   preview: {
-    allowedHosts: [".up.railway.app"],
+    allowedHosts: [".up.railway.app", ".modal.host"],
   },
 });
