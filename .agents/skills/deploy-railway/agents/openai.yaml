@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deploy Railway"
+  short_description: "Deploy and verify this app on Railway"
+  default_prompt: "Use $deploy-railway to deploy this repository to its existing Railway service and verify the public URL."
