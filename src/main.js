@@ -193,39 +193,75 @@ L.tileLayer("https://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png", {
   attribution: '&copy; <a href="https://www.openrailwaymap.org/">OpenRailwayMap</a>',
 }).addTo(map);
 
+const railStations = {
+  tokyo: { name: "Tokyo", coords: [35.6811412, 139.7674549] },
+  shinagawa: { name: "Shinagawa", coords: [35.6286974, 139.7391291] },
+  shinYokohama: { name: "Shin-Yokohama", coords: [35.5072282, 139.6174221] },
+  nagoya: { name: "Nagoya", coords: [35.1707285, 136.8818431] },
+  kyoto: { name: "Kyoto", coords: [34.9853497, 135.758766] },
+  tofukuji: { name: "Tōfukuji", coords: [34.9812619, 135.7700213] },
+  rokujizo: { name: "Rokujizō", coords: [34.9335726, 135.7963125] },
+  uji: { name: "Uji", coords: [34.8904111, 135.8007079] },
+  joyo: { name: "Jōyō", coords: [34.8560656, 135.7808145] },
+  tamamizu: { name: "Tamamizu", coords: [34.800257, 135.8070307] },
+  kizu: { name: "Kizu", coords: [34.7358877, 135.8249246] },
+  nara: { name: "Nara", coords: [34.6808117, 135.8189414] },
+  koriyama: { name: "Kōriyama", coords: [34.6480872, 135.7903341] },
+  yamatoKoizumi: { name: "Yamato-Koizumi", coords: [34.6224108, 135.7636549] },
+  horyuji: { name: "Hōryūji", coords: [34.6016824, 135.7391165] },
+  oji: { name: "Ōji", coords: [34.5973636, 135.7035805] },
+  kyuhoji: { name: "Kyūhōji", coords: [34.6224465, 135.5840263] },
+  tennoji: { name: "Tennōji", coords: [34.6473432, 135.5152413] },
+  shinImamiya: { name: "Shin-Imamiya", coords: [34.6498493, 135.502195] },
+  taisho: { name: "Taishō", coords: [34.6656183, 135.4786895] },
+  bentencho: { name: "Bentenchō", coords: [34.670288, 135.4618301] },
+  nishikujo: { name: "Nishikujō", coords: [34.6822701, 135.4663099] },
+  fukushima: { name: "Fukushima", coords: [34.6972584, 135.4868438] },
+  osaka: { name: "Osaka", coords: [34.7022133, 135.4955732] },
+};
+
+const station = (id) => railStations[id].coords;
+
 const railSegments = [
   {
-    name: "Tokaido Shinkansen",
-    sub: "Tokyo → Kyoto · about 2h 10m",
+    name: "Nozomi · Tokaido Shinkansen",
+    sub: "Tokyo → Kyoto · 5 stops · about 2h 10m",
     color: "#e4573f",
+    stops: ["tokyo", "shinagawa", "shinYokohama", "nagoya", "kyoto"],
     coords: [
-      [35.6812,139.7671],[35.6555,139.7459],[35.6285,139.7388],[35.5698,139.6828],
-      [35.5075,139.6176],[35.4434,139.5667],[35.3606,139.4686],[35.2564,139.155],
+      station("tokyo"),[35.6555,139.7459],station("shinagawa"),[35.5698,139.6828],
+      station("shinYokohama"),[35.4434,139.5667],[35.3606,139.4686],[35.2564,139.155],
       [35.1034,139.0777],[35.1260,138.9107],[35.1420,138.6635],[35.1030,138.5295],
       [34.9716,138.3889],[34.8543,138.2494],[34.7693,138.0144],[34.7038,137.7346],
-      [34.7628,137.3817],[34.9689,137.0602],[35.1709,136.8815],[35.3158,136.6856],
-      [35.3154,136.2905],[35.1232,136.1875],[35.0373,135.9818],[34.9858,135.7588]
+      [34.7628,137.3817],[34.9689,137.0602],station("nagoya"),[35.3158,136.6856],
+      [35.3154,136.2905],[35.1232,136.1875],[35.0373,135.9818],station("kyoto")
     ],
   },
   {
-    name: "JR Nara Line",
-    sub: "Kyoto → Nara · about 45m",
+    name: "Miyakoji Rapid · JR Nara Line",
+    sub: "Kyoto → Nara · 8 stops · about 45m",
     color: "#355f57",
+    stops: ["kyoto", "tofukuji", "rokujizo", "uji", "joyo", "tamamizu", "kizu", "nara"],
     coords: [
-      [34.9858,135.7588],[34.9810,135.7690],[34.9568,135.7688],[34.9328,135.7970],
-      [34.9049,135.7930],[34.8906,135.8004],[34.8777,135.8060],[34.8531,135.8066],
-      [34.8261,135.8060],[34.7880,135.8150],[34.7360,135.8240],[34.7010,135.8210],
-      [34.6805,135.8180]
+      station("kyoto"),station("tofukuji"),[34.9568,135.7688],station("rokujizo"),
+      [34.9049,135.7930],station("uji"),[34.8777,135.8060],station("joyo"),
+      [34.8261,135.8060],station("tamamizu"),[34.7880,135.8150],station("kizu"),
+      [34.7010,135.8210],station("nara")
     ],
   },
   {
-    name: "Yamatoji Line",
-    sub: "Nara → Osaka · about 50m",
+    name: "Yamatoji Rapid",
+    sub: "Nara → Osaka · 13 stops · about 50m",
     color: "#d49b38",
+    stops: [
+      "nara", "koriyama", "yamatoKoizumi", "horyuji", "oji", "kyuhoji", "tennoji",
+      "shinImamiya", "taisho", "bentencho", "nishikujo", "fukushima", "osaka",
+    ],
     coords: [
-      [34.6805,135.8180],[34.6701,135.7930],[34.6402,135.7682],[34.5975,135.7041],
-      [34.5881,135.6793],[34.6018,135.6460],[34.6215,135.6007],[34.6280,135.5830],
-      [34.6384,135.5702],[34.6473,135.5141],[34.6687,135.5023],[34.7025,135.4959]
+      station("nara"),station("koriyama"),station("yamatoKoizumi"),station("horyuji"),
+      station("oji"),[34.6018,135.6460],[34.6215,135.6007],station("kyuhoji"),
+      [34.6384,135.5702],station("tennoji"),station("shinImamiya"),station("taisho"),
+      station("bentencho"),station("nishikujo"),station("fukushima"),station("osaka")
     ],
   },
 ];
@@ -250,13 +286,28 @@ railSegments.forEach((segment) => {
     sticky: true,
     className: "route-tooltip",
   });
+
+  segment.stops.slice(1, -1).forEach((stationId, index) => {
+    const stop = railStations[stationId];
+    L.circleMarker(stop.coords, {
+      radius: 4,
+      color: "#fffaf0",
+      weight: 2,
+      fillColor: segment.color,
+      fillOpacity: 1,
+    }).bindTooltip(`<strong>${stop.name} Station</strong><br><span>Stop ${index + 2} of ${segment.stops.length}</span>`, {
+      direction: "top",
+      offset: [0, -5],
+      className: "route-tooltip station-tooltip",
+    }).addTo(routeGroup);
+  });
 });
 
 const cities = [
-  { name: "Tokyo", code: "TYO", date: "APR 16–18", coords: [35.6812, 139.7671], color: "#e4573f" },
-  { name: "Kyoto", code: "KYO", date: "APR 18–20", coords: [34.9858, 135.7588], color: "#355f57" },
-  { name: "Nara", code: "NAR", date: "APR 20", coords: [34.6805, 135.818], color: "#355f57" },
-  { name: "Osaka", code: "OSA", date: "APR 20–23", coords: [34.7025, 135.4959], color: "#d49b38" },
+  { name: "Tokyo", code: "TYO", date: "APR 16–18", coords: station("tokyo"), color: "#e4573f" },
+  { name: "Kyoto", code: "KYO", date: "APR 18–20", coords: station("kyoto"), color: "#355f57" },
+  { name: "Nara", code: "NAR", date: "APR 20", coords: station("nara"), color: "#355f57" },
+  { name: "Osaka", code: "OSA", date: "APR 20–23", coords: station("osaka"), color: "#d49b38" },
 ];
 
 cities.forEach((city, index) => {
