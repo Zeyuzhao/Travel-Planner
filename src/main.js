@@ -6,7 +6,6 @@ const icons = {
   route: `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 19c-2.2 0-4-1.8-4-4s1.8-4 4-4h12a2 2 0 1 0 0-4h-2"/><circle cx="8" cy="7" r="3"/><circle cx="18" cy="15" r="3"/></svg>`,
   heart: `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>`,
   phrase: `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8M8 13h5"/></svg>`,
-  tip: `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M8.5 14.5A7 7 0 1 1 15.6 14c-.9.7-1.6 1.7-1.6 3h-4c0-1.1-.5-1.9-1.5-2.5Z"/></svg>`,
 };
 
 const itinerary = [
@@ -90,7 +89,6 @@ document.querySelector("#app").innerHTML = `
         <button class="tab active" data-tab="itinerary" aria-selected="true">${icons.route}<span>Route</span></button>
         <button class="tab" data-tab="proposal" aria-selected="false">${icons.heart}<span>Moment</span></button>
         <button class="tab" data-tab="phrases" aria-selected="false">${icons.phrase}<span>Speak</span></button>
-        <button class="tab" data-tab="tips" aria-selected="false">${icons.tip}<span>Tips</span></button>
       </nav>
 
       <div class="sidebar-content">
@@ -152,18 +150,6 @@ document.querySelector("#app").innerHTML = `
           <p class="tap-note">Tap a phrase to practice its rhythm.</p>
         </section>
 
-        <section class="panel" id="tips" aria-labelledby="tips-heading" hidden>
-          <p class="eyebrow">Know before you go</p>
-          <h2 id="tips-heading">Small things that help</h2>
-          <div class="tip-grid">
-            <article><span>01</span><h3>Seats on the left</h3><p>Tokyo → Kyoto, reserve seats D & E for your best Mount Fuji chance.</p></article>
-            <article><span>02</span><h3>Pack light</h3><p>Use luggage forwarding from Tokyo to Osaka; take one overnight bag to Kyoto.</p></article>
-            <article><span>03</span><h3>Tap to ride</h3><p>Add Suica to your phone before landing for local trains, buses, and konbini.</p></article>
-            <article><span>04</span><h3>Carry cash</h3><p>Keep ¥10,000–15,000 handy for small bars, temples, and older ticket machines.</p></article>
-            <article><span>05</span><h3>Be early</h3><p>Popular Kyoto sights feel completely different before 8:00 in the morning.</p></article>
-            <article><span>06</span><h3>Mind the last train</h3><p>Most urban trains wind down around midnight. Screenshot the final departure.</p></article>
-          </div>
-        </section>
       </div>
     </aside>
 

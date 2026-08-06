@@ -227,11 +227,6 @@ h2 { margin: 0; font-size: 23px; letter-spacing: -.035em; }
 @keyframes pulse { to { transform: scale(1.15); } }
 .tap-note { margin: 13px 0 0; color: #8b9692; font-size: 9px; text-align: center; }
 
-.tip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
-.tip-grid article { min-height: 150px; padding: 15px; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,250,240,.7); }
-.tip-grid span { color: var(--gold); font-family: "Newsreader", serif; font-size: 20px; font-style: italic; }
-.tip-grid h3 { margin: 16px 0 5px; font-size: 12px; }
-.tip-grid p { margin: 0; color: #65736f; font-size: 9px; line-height: 1.55; }
 
 .map-stage { position: relative; min-width: 0; min-height: 0; background: #dce2dc; }
 #map { width: 100%; height: 100%; background: #dce2dc; }
@@ -294,9 +289,6 @@ h2 { margin: 0; font-size: 23px; letter-spacing: -.035em; }
 @media (max-width: 420px) {
   .map-stage { min-height: 350px; height: 48vh; }
   .trip-header { padding-top: 22px; }
-  .tip-grid { grid-template-columns: 1fr; }
-  .tip-grid article { min-height: auto; }
-  .tip-grid h3 { margin-top: 8px; }
   .proposal-art { min-height: 130px; }
 }
 
