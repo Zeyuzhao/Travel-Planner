@@ -84,7 +84,7 @@ h1 em {
 
 .section-tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 8px 14px 0;
   border-bottom: 1px solid var(--line);
 }
