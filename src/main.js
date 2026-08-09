@@ -73,6 +73,11 @@ const itinerary = [
 ];
 
 document.querySelector("#app").innerHTML = `
+  <div class="testing-banner" role="status" aria-label="Testing environment notice">
+    <strong>Testing environment</strong>
+    <span aria-hidden="true">•</span>
+    <span>Changes here are for validation only</span>
+  </div>
   <div class="trip-shell">
     <aside class="sidebar">
       <header class="trip-header">

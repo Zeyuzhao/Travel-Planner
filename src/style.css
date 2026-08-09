@@ -16,6 +16,12 @@
 
 html, body, #app { min-height: 100%; margin: 0; }
 
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 body {
   min-width: 320px;
   background: var(--paper);
@@ -25,11 +31,35 @@ body {
 
 button { font: inherit; }
 
+.testing-banner {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 7px 18px;
+  background: #d49b38;
+  box-shadow: 0 2px 10px rgba(24, 53, 47, .18);
+  color: #18352f;
+  font-size: 10px;
+  letter-spacing: .03em;
+  text-align: center;
+}
+
+.testing-banner strong {
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
 .trip-shell {
   display: grid;
+  flex: 1 1 auto;
   grid-template-columns: minmax(350px, 390px) minmax(0, 1fr);
-  min-height: 100vh;
-  height: 100vh;
+  min-height: 0;
 }
 
 .sidebar {
@@ -273,7 +303,9 @@ h2 { margin: 0; font-size: 23px; letter-spacing: -.035em; }
 
 @media (max-width: 780px) {
   body { overflow: auto; }
-  .trip-shell { display: flex; flex-direction: column; height: auto; min-height: 100vh; }
+  #app { height: auto; min-height: 100vh; }
+  .testing-banner { position: sticky; top: 0; }
+  .trip-shell { display: flex; flex: 1 0 auto; flex-direction: column; height: auto; min-height: calc(100vh - 34px); }
   .map-stage { order: -1; height: 52vh; min-height: 390px; }
   .sidebar { min-height: 48vh; box-shadow: 0 -10px 30px rgba(24,53,47,.12); }
   .trip-header { padding: 23px 22px 19px; }
