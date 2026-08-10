@@ -72,12 +72,21 @@ const itinerary = [
   },
 ];
 
-document.querySelector("#app").innerHTML = `
-  <div class="testing-banner" role="status" aria-label="Testing environment notice">
-    <strong>Testing environment</strong>
-    <span aria-hidden="true">•</span>
-    <span>Changes here are for validation only</span>
-  </div>
+const app = document.querySelector("#app");
+const appEnvironment = import.meta.env.VITE_APP_ENV?.toLowerCase();
+const isTestingEnvironment =
+  import.meta.env.DEV ||
+  appEnvironment === "staging";
+
+app.classList.toggle("has-testing-banner", isTestingEnvironment);
+app.innerHTML = `
+  ${isTestingEnvironment ? `
+    <div class="testing-banner" role="status" aria-label="Testing environment notice">
+      <strong>Testing environment</strong>
+      <span aria-hidden="true">•</span>
+      <span>Changes here are for validation only</span>
+    </div>
+  ` : ""}
   <div class="trip-shell">
     <aside class="sidebar">
       <header class="trip-header">

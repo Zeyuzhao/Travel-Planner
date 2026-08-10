@@ -10,6 +10,7 @@
   --red: #e4573f;
   --gold: #d49b38;
   --line: rgba(24, 53, 47, 0.14);
+  --testing-banner-height: 34px;
 }
 
 * { box-sizing: border-box; }
@@ -39,7 +40,7 @@ button { font: inherit; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 34px;
+  min-height: var(--testing-banner-height);
   padding: 7px 18px;
   background: #d49b38;
   box-shadow: 0 2px 10px rgba(24, 53, 47, .18);
@@ -305,13 +306,15 @@ h2 { margin: 0; font-size: 23px; letter-spacing: -.035em; }
   body { overflow: auto; }
   #app { height: auto; min-height: 100vh; }
   .testing-banner { position: sticky; top: 0; }
-  .trip-shell { display: flex; flex: 1 0 auto; flex-direction: column; height: auto; min-height: calc(100vh - 34px); }
+  .trip-shell { display: flex; flex: 1 0 auto; flex-direction: column; height: auto; min-height: 100vh; }
+  .has-testing-banner .trip-shell { min-height: calc(100vh - var(--testing-banner-height)); }
   .map-stage { order: -1; height: 52vh; min-height: 390px; }
   .sidebar { min-height: 48vh; box-shadow: 0 -10px 30px rgba(24,53,47,.12); }
   .trip-header { padding: 23px 22px 19px; }
   h1 { font-size: 46px; }
   .trip-meta { margin-top: 18px; }
   .section-tabs { position: sticky; top: 0; z-index: 20; padding-right: 10px; padding-left: 10px; background: rgba(248,243,232,.96); backdrop-filter: blur(8px); }
+  .has-testing-banner .section-tabs { top: var(--testing-banner-height); }
   .panel { padding: 23px 20px 34px; }
   .day-detail { font-size: 11px; }
   .leaflet-control-zoom { margin-top: 16px !important; margin-right: 16px !important; }
