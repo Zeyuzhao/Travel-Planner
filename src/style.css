@@ -114,7 +114,7 @@ h1 em {
 
 .section-tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 8px 14px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -305,7 +305,8 @@ h2 { margin: 0; font-size: 23px; letter-spacing: -.035em; }
   body { overflow: auto; }
   #app { height: auto; min-height: 100vh; }
   .testing-banner { position: sticky; top: 0; }
-  .trip-shell { display: flex; flex: 1 0 auto; flex-direction: column; height: auto; min-height: calc(100vh - 34px); }
+  .trip-shell { display: flex; flex: 1 0 auto; flex-direction: column; height: auto; min-height: 100vh; }
+  .testing-banner + .trip-shell { min-height: calc(100vh - 34px); }
   .map-stage { order: -1; height: 52vh; min-height: 390px; }
   .sidebar { min-height: 48vh; box-shadow: 0 -10px 30px rgba(24,53,47,.12); }
   .trip-header { padding: 23px 22px 19px; }
