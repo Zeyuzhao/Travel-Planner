@@ -221,7 +221,7 @@ const railSegments = [
   {
     name: "Nozomi · Tokaido Shinkansen",
     sub: "Tokyo → Kyoto · 5 stops · about 2h 10m",
-    color: "#e4573f",
+    color: "#ff3ec8",
     stops: ["tokyo", "shinagawa", "shinYokohama", "nagoya", "kyoto"],
     coords: [
       station("tokyo"),[35.6555,139.7459],station("shinagawa"),[35.5698,139.6828],
@@ -235,7 +235,7 @@ const railSegments = [
   {
     name: "Miyakoji Rapid · JR Nara Line",
     sub: "Kyoto → Nara · 8 stops · about 45m",
-    color: "#355f57",
+    color: "#54f7ff",
     stops: ["kyoto", "tofukuji", "rokujizo", "uji", "joyo", "tamamizu", "kizu", "nara"],
     coords: [
       station("kyoto"),station("tofukuji"),[34.9568,135.7688],station("rokujizo"),
@@ -247,7 +247,7 @@ const railSegments = [
   {
     name: "Yamatoji Rapid",
     sub: "Nara → Osaka · 13 stops · about 50m",
-    color: "#d49b38",
+    color: "#dfff3f",
     stops: [
       "nara", "koriyama", "yamatoKoizumi", "horyuji", "oji", "kyuhoji", "tennoji",
       "shinImamiya", "taisho", "bentencho", "nishikujo", "fukushima", "osaka",
@@ -265,7 +265,7 @@ const routeGroup = L.featureGroup().addTo(map);
 
 railSegments.forEach((segment) => {
   L.polyline(segment.coords, {
-    color: "#fffaf0",
+    color: "#070b13",
     weight: 9,
     opacity: 0.9,
     lineCap: "round",
@@ -286,7 +286,7 @@ railSegments.forEach((segment) => {
     const stop = railStations[stationId];
     L.circleMarker(stop.coords, {
       radius: 4,
-      color: "#fffaf0",
+      color: "#070b13",
       weight: 2,
       fillColor: segment.color,
       fillOpacity: 1,
@@ -299,10 +299,10 @@ railSegments.forEach((segment) => {
 });
 
 const cities = [
-  { name: "Tokyo", code: "TYO", date: "SEP 16–18", coords: station("tokyo"), color: "#e4573f" },
-  { name: "Kyoto", code: "KYO", date: "SEP 18–20", coords: station("kyoto"), color: "#355f57" },
-  { name: "Nara", code: "NAR", date: "SEP 20", coords: station("nara"), color: "#355f57" },
-  { name: "Osaka", code: "OSA", date: "SEP 20–23", coords: station("osaka"), color: "#d49b38" },
+  { name: "Tokyo", code: "TYO", date: "SEP 16–18", coords: station("tokyo"), color: "#ff3ec8" },
+  { name: "Kyoto", code: "KYO", date: "SEP 18–20", coords: station("kyoto"), color: "#54f7ff" },
+  { name: "Nara", code: "NAR", date: "SEP 20", coords: station("nara"), color: "#54f7ff" },
+  { name: "Osaka", code: "OSA", date: "SEP 20–23", coords: station("osaka"), color: "#dfff3f" },
 ];
 
 cities.forEach((city, index) => {
