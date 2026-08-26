@@ -11,7 +11,7 @@ const icons = {
 const itinerary = [
   {
     day: "01",
-    date: "OCT 16",
+    date: "DEC 16",
     city: "Tokyo",
     title: "Land softly",
     detail: "Check in, stretch your legs in Daikanyama, then ramen under the lanterns in Ebisu.",
@@ -20,7 +20,7 @@ const itinerary = [
   },
   {
     day: "02",
-    date: "OCT 17",
+    date: "DEC 17",
     city: "Tokyo",
     title: "Old Tokyo, new Tokyo",
     detail: "Early Asakusa, Kiyosumi gardens, and a golden-hour wander through Shibuya.",
@@ -29,7 +29,7 @@ const itinerary = [
   },
   {
     day: "03",
-    date: "OCT 18",
+    date: "DEC 18",
     city: "Tokyo → Kyoto",
     title: "Ride the Tokaido",
     detail: "Tokyo Station bento, Mount Fuji-side seats, then a quiet first night in Gion.",
@@ -37,7 +37,7 @@ const itinerary = [
   },
   {
     day: "04",
-    date: "OCT 19",
+    date: "DEC 19",
     city: "Kyoto",
     title: "Temples before breakfast",
     detail: "Kiyomizu-dera at opening, Philosopher’s Path, then Pontocho after dark.",
@@ -46,7 +46,7 @@ const itinerary = [
   },
   {
     day: "05",
-    date: "OCT 20",
+    date: "DEC 20",
     city: "Kyoto → Nara",
     title: "A day among the deer",
     detail: "JR Nara Line south; Tōdai-ji, Kasuga paths, and a late train onward to Osaka.",
@@ -54,7 +54,7 @@ const itinerary = [
   },
   {
     day: "06",
-    date: "OCT 21",
+    date: "DEC 21",
     city: "Osaka",
     title: "Eat the city",
     detail: "Kuromon Market, retro Shinsekai, and a Dotonbori crawl—one plate at a time.",
@@ -63,7 +63,7 @@ const itinerary = [
   },
   {
     day: "07",
-    date: "OCT 22",
+    date: "DEC 22",
     city: "Osaka",
     title: "One last view",
     detail: "Nakazakicho coffee, Osaka Castle park, and sunset from the Umeda Sky Building.",
@@ -88,9 +88,9 @@ document.querySelector("#app").innerHTML = `
         <p class="eyebrow">A trip for two</p>
         <h1>Japan,<br><em>together.</em></h1>
         <div class="trip-meta">
-          <div><span>Depart</span><strong>SEA · OCT 15</strong></div>
+          <div><span>Depart</span><strong>SEA · DEC 15, 2026</strong></div>
           <span class="meta-arrow">→</span>
-          <div><span>Return</span><strong>OCT 23 · SEA</strong></div>
+          <div><span>Return</span><strong>DEC 23, 2026 · SEA</strong></div>
         </div>
       </header>
 
@@ -122,7 +122,7 @@ document.querySelector("#app").innerHTML = `
               </button>
             `).join("")}
           </div>
-          <div class="home-flight"><span>OCT 23</span><strong>KIX → SEA</strong><small>Head home, camera roll full.</small></div>
+          <div class="home-flight"><span>DEC 23</span><strong>KIX → SEA</strong><small>Head home, camera roll full.</small></div>
         </section>
 
         <section class="panel" id="proposal" aria-labelledby="proposal-heading" hidden>
@@ -131,7 +131,7 @@ document.querySelector("#app").innerHTML = `
           <div class="proposal-card">
             <div class="proposal-art"><span>鴨川デルタ</span><b>35.0308° N<br>135.7717° E</b></div>
             <div class="proposal-copy">
-              <span class="recommendation">Our pick · October 19</span>
+              <span class="recommendation">Our pick · December 19, 2026</span>
               <h3>Kamo River Delta</h3>
               <p>Two rivers meet beneath Kyoto’s eastern mountains. Cross the stepping stones, find a quiet patch on the east bank, and let the evening turn gold.</p>
             </div>
@@ -299,10 +299,10 @@ railSegments.forEach((segment) => {
 });
 
 const cities = [
-  { name: "Tokyo", code: "TYO", date: "OCT 16–18", coords: station("tokyo"), color: "#e4573f" },
-  { name: "Kyoto", code: "KYO", date: "OCT 18–20", coords: station("kyoto"), color: "#355f57" },
-  { name: "Nara", code: "NAR", date: "OCT 20", coords: station("nara"), color: "#355f57" },
-  { name: "Osaka", code: "OSA", date: "OCT 20–23", coords: station("osaka"), color: "#d49b38" },
+  { name: "Tokyo", code: "TYO", date: "DEC 16–18", coords: station("tokyo"), color: "#e4573f" },
+  { name: "Kyoto", code: "KYO", date: "DEC 18–20", coords: station("kyoto"), color: "#355f57" },
+  { name: "Nara", code: "NAR", date: "DEC 20", coords: station("nara"), color: "#355f57" },
+  { name: "Osaka", code: "OSA", date: "DEC 20–23", coords: station("osaka"), color: "#d49b38" },
 ];
 
 cities.forEach((city, index) => {
@@ -328,7 +328,7 @@ const proposalMarker = L.marker([35.0308, 135.7717], {
     iconAnchor: [21, 21],
   }),
 });
-proposalMarker.bindPopup(`<div class="city-popup"><small>THE MOMENT</small><strong>Kamo River Delta</strong><span>Golden hour · Oct 19</span></div>`, {
+proposalMarker.bindPopup(`<div class="city-popup"><small>THE MOMENT</small><strong>Kamo River Delta</strong><span>Golden hour · Dec 19, 2026</span></div>`, {
   closeButton: false,
   offset: [0, -8],
 });
