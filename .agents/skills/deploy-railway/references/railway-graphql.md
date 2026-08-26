@@ -36,7 +36,7 @@ curl -fsS https://backboard.railway.com/graphql/v2 \
   | jq '.data.workspace.projects.edges[].node | select(.name == "japan-trip-planner")'
 ```
 
-Resolve the service and production environment from the discovered project ID:
+Resolve the service and available environments from the discovered project ID. Select `staging` for staging requests and `production` only when production was explicitly requested:
 
 ```bash
 payload=$(jq -nc --arg projectId "$project_id" '{
@@ -50,7 +50,7 @@ curl -fsS https://backboard.railway.com/graphql/v2 \
   --data "$payload" | jq '{project: .data.project, errors: [.errors[]?.message]}'
 ```
 
-Use the production environment and the app service. Compare the results with the last-known IDs in the skill before deploying.
+Use the selected environment and the app service. Compare the results with the last-known IDs in the skill before deploying. Do not deploy a staging request to the production environment.
 
 ## Inspect the service source
 
@@ -116,7 +116,7 @@ query($id: String!) {
 }
 ```
 
-After `SUCCESS`, verify both the commit metadata and:
+After `SUCCESS`, verify both the commit metadata and the URL for the selected environment. The production check is only for an explicit production request:
 
 ```bash
 curl -fsS -o /dev/null -w '%{http_code}\n' \
