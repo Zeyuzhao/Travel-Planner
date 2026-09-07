@@ -164,7 +164,22 @@ document.querySelector("#app").innerHTML = `
 
     <main class="map-stage">
       <div id="map" aria-label="Interactive map of the rail route from Tokyo to Kyoto, Nara, and Osaka"></div>
-      <button class="fit-route" aria-label="Fit the complete route on the map">Fit route</button>
+      <section class="map-overview" aria-label="Map route overview">
+        <div class="map-overview-heading">
+          <span class="map-kicker">Rail journey</span>
+          <strong>Tokyo → Osaka</strong>
+        </div>
+        <div class="route-key" aria-label="Rail lines">
+          <span><i style="--route-color:#e4573f"></i>Tokaido</span>
+          <span><i style="--route-color:#355f57"></i>Nara</span>
+          <span><i style="--route-color:#d49b38"></i>Yamatoji</span>
+        </div>
+      </section>
+      <div class="map-status" aria-live="polite">
+        <span>Viewing</span>
+        <strong>Complete route</strong>
+      </div>
+      <button class="fit-route" aria-label="Fit the complete route on the map"><span aria-hidden="true">⌖</span> Overview</button>
     </main>
   </div>
 `;
@@ -333,7 +348,12 @@ proposalMarker.bindPopup(`<div class="city-popup"><small>THE MOMENT</small><stro
   offset: [0, -8],
 });
 
-const fitRoute = () => map.fitBounds(routeGroup.getBounds(), { padding: [60, 60] });
+const mapStatus = document.querySelector(".map-status strong");
+const setMapStatus = (label) => { mapStatus.textContent = label; };
+const fitRoute = () => {
+  map.fitBounds(routeGroup.getBounds(), { padding: [60, 60] });
+  setMapStatus("Complete route");
+};
 fitRoute();
 
 document.querySelector(".fit-route").addEventListener("click", fitRoute);
@@ -353,8 +373,10 @@ document.querySelectorAll(".tab").forEach((tab) => {
     });
     if (target === "proposal") {
       proposalMarker.addTo(map);
+      setMapStatus("Proposal · Kyoto");
     } else if (map.hasLayer(proposalMarker)) {
       map.removeLayer(proposalMarker);
+      setMapStatus("Complete route");
     }
   });
 });
@@ -362,6 +384,7 @@ document.querySelectorAll(".tab").forEach((tab) => {
 document.querySelectorAll(".day-card").forEach((card) => {
   card.addEventListener("click", () => {
     const selected = itinerary[Number(card.dataset.day)];
+    setMapStatus(`Day ${selected.day} · ${selected.city}`);
     document.querySelectorAll(".day-card").forEach((item) => item.classList.toggle("selected", item === card));
     if (selected.bounds) {
       map.fitBounds(selected.bounds, { padding: [90, 90], maxZoom: 8 });
@@ -374,6 +397,7 @@ document.querySelectorAll(".day-card").forEach((card) => {
 document.querySelector('[data-location="proposal"]').addEventListener("click", () => {
   proposalMarker.addTo(map).openPopup();
   map.flyTo([35.0308, 135.7717], 13, { duration: 1.2 });
+  setMapStatus("Proposal · Kamo River Delta");
 });
 
 document.querySelectorAll(".phrase-row").forEach((row) => {
